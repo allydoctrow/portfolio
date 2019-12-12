@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Ally Doctrow</title>
+	<meta name="author" content="Ally Doctrow">
+	<meta name="description" content="Fine Artist and Designer">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/styles.css"/>
+	<link rel="icon" type="image/x-icon" href=""/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="stylesheet" href="https://use.typekit.net/rvp1vio.css">
+<link rel="file:///Users/allydoctrow/Desktop/Signature.html"/>
+
+    <nav> 
+        <ul>
+        <img align="left" src="logo%20maroon.png" alt="Image" height="60px" width="40px">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#designwork">DESIGN WORK</a></li>
+        <li><a href="#fineartwork">FINE ART WORK</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        </ul>
+    </nav>
+    
+  <article>
+    <img src="website%20drawing.jpg" alt="Image" height="1000px" width="600px" align="right">
+            </article>   
+    
+<script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+<script src="animation3.js"></script>
+<script>
+var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+function init() {
+	canvas = document.getElementById("canvas");
+	anim_container = document.getElementById("animation_container");
+	dom_overlay_container = document.getElementById("dom_overlay_container");
+	var comp=AdobeAn.getComposition("0B9EDA1B749E40A6B7E092C3AC8B76F3");
+	var lib=comp.getLibrary();
+	var loader = new createjs.LoadQueue(false);
+	loader.addEventListener("fileload", function(evt){handleFileLoad(evt,comp)});
+	loader.addEventListener("complete", function(evt){handleComplete(evt,comp)});
+	var lib=comp.getLibrary();
+	loader.loadManifest(lib.properties.manifest);
+}
+function handleFileLoad(evt, comp) {
+	var images=comp.getImages();	
+	if (evt && (evt.item.type == "image")) { images[evt.item.id] = evt.result; }	
+}
+function handleComplete(evt,comp) {
+	//This function is always called, irrespective of the content. You can use the variable "stage" after it is created in token create_stage.
+	var lib=comp.getLibrary();
+	var ss=comp.getSpriteSheet();
+	var queue = evt.target;
+	var ssMetadata = lib.ssMetadata;
+	for(i=0; i<ssMetadata.length; i++) {
+		ss[ssMetadata[i].name] = new createjs.SpriteSheet( {"images": [queue.getResult(ssMetadata[i].name)], "frames": ssMetadata[i].frames} )
+	}
+	exportRoot = new lib.animation();
+	stage = new lib.Stage(canvas);	
+	//Registers the "tick" event listener.
+	fnStartAnimation = function() {
+		stage.addChild(exportRoot);
+		createjs.Ticker.framerate = lib.properties.fps;
+		createjs.Ticker.addEventListener("tick", stage);
+	}	    
+	//Code to support hidpi screens and responsive scaling.
+	AdobeAn.makeResponsive(false,'both',false,1,[canvas,anim_container,dom_overlay_container]);	
+	AdobeAn.compositionLoaded(lib.properties.id);
+	fnStartAnimation();
+}
+</script>
+</head>
+
+<body onload="init();" style="margin:0px;">
+	
+    <section id="home">
+    <article>   
+    <body onload="init();" style="margin:0px;">
+	<div id="animation_container" style="background-color:rgba(255, 255, 255, 1.00); width:0px; height:0px">
+		<canvas id="canvas" width="400px" height="200px" style="position:; display: block; background-color:rgba(255, 255, 255, 1.00);"></canvas>
+		<div id="dom_overlay_container" style="pointer-events:none; overflow:hidden; width:100px; height:200px;  left: 0px; top: 0px; display: block;">
+		</div>
+	</div>
+         </body>   
+        </article>
+
+    </section>
+	
+    
+    <section id="designwork">
+        <h4>DESIGN WORK</h4>
+        
+        <button onclick="topFunction()" id="myBtn" title="Go to top"> Back To Top</button>
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Back To Top</button>
+        
+     <article> 
+         <h5>SOCIETY FOR PHOTOGRAPHIC EDUCATION MIDWEST CONFERENCE INTERNSHIP</h5>
+         <img src="Program%20.jpg" alt="image" height="700px" width="500px">
+          <img src="Program%202.jpg" alt="image" height="700px" width="500px">
+          <img src="Program%203.jpg" alt="image" height="700px" width="500px">
+          <img src="Program%204.jpg" alt="image" height="700px" width="500px">
+          <img src="Program%205.jpg" alt="image" height="700px" width="500px">
+          <img src="printed2.jpg" alt="image" height="700px" width="500px">
+          <img src="printed3.jpg" alt="image" height="700px" width="500px">
+          <img src="printedprogrampage.jpg" alt="image" height="700px" width="500px">
+         <img src="IMG_1523.JPG" alt="image" height="700px" width="500px">
+          <img src="SIGN3.jpg" alt="image" height="700px" width="500px">
+          <img src="SIGN9.jpg" alt="image" height="700px" width="500px">
+          <img src="sign.JPG" alt="image" height="700px" width="500px">
+        </article>
+        
+          <article>
+            <h5>MAGAZINE SPREADS</h5>
+    <img src="axial.jpg" alt="image" height="700px" width="500px">
+       <img src="Grid.jpg" alt="image" height="700px" width="500px">  
+         <img src="Oil%20Spills%20Spread.jpg" alt="image" height="700px" width="500px">
+             <img src="Doctrow,Ally_CD1_PJ3%20(1).jpg" alt="image" height="500px" width="700px">
+        </article>
+        
+            <h5>WATER QUALITY RESEARCH APP DESIGN</h5>
+    
+         <article id="wq">
+             <div class="wq1">
+           <embed src="app.mp4" autostart="false" height="600PX" width="500px" />   
+             <img src="style_tile.jpg" alt="image" height="600px" width="400px">
+             <img src="logoapp2.jpg" alt="image" height="200px" width="300px">
+       <img src="applogo.jpg" alt="image" height="175px" width="150px">
+             </div>
+            
+              <div class="wq2">
+              <img src="personas_Page_1.jpg" alt="image" height="600px" width="300px">
+             <img src="personas_Page_2.jpg" alt="image" height="600px" width="300px">
+             <img src="personas_Page_3.jpg" alt="image" height="600px" width="300px">
+             <img src="personas_Page_4.jpg" alt="image" height="600px" width="300px">
+                  </div>  
+                <div class="wq3">   
+             <img src="personas_Page_5.jpg" alt="image" height="600px" width="300px">
+             <img src="personas_Page_6.jpg" alt="image" height="600px" width="300px">
+             </div>
+    
+        </article>
+        
+          <article>
+            <h5>INFOGRAPHIC</h5>
+    <embed src="Doctrow_Infographic.mp4" autostart="false" height="400PX" width="500px" />      
+        </article>
+        
+        <article>
+            <h5>PACKAGING DESIGN</h5>
+   <img src="METAMORPHOSIS.jpg" alt="image" height="600px" width="800px">
+        <img src="METAMORPHOSIS2.jpg" alt="image" height="600px" width="400px">
+        </article>
+        <article>
+    <h5>TYPOGRAPHY ALPHABET BOOKLET DESIGN</h5>
+        <img src="Doctrow_P2%20(1)_Page_01.jpg" alt="image" height="300px" width="200px">
+        <img src="Doctrow_P2%20(1)_Page_02.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_03.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_04.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_05.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_06.jpg" alt="image" height="400px" width="500px">
+        <img src="Doctrow_P2%20(1)_Page_07.jpg" alt="image" height="400px" width="500px">
+        <img src="Doctrow_P2%20(1)_Page_08.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_09.jpg" alt="image" height="400px" width="500px">
+         <img src="Doctrow_P2%20(1)_Page_10.jpg" alt="image" height="400px" width="500px">
+        </article>
+        
+        <article>
+        <h5> KILLER KIDS INFORMATIONAL BROCHURE</h5>
+        <img src="KK1.jpg" alt="image" height="400px" width="300px">
+        <img src="KK2.jpg" alt="image" height="400px" width="300px">
+        <img src="KK4.jpg" alt="image" height="400px" width="300px">
+        <img src="KK6.jpg" alt="image" height="400px" width="300px">
+        <img src="KK7.jpg" alt="image" height="400px" width="300px">
+          <img src="KK9.jpg" alt="image" height="400px" width="300px">  
+        <img src="KK10.jpg" alt="image" height="400px" width="300px">
+        <img src="KK11.jpg" alt="image" height="400px" width="300px">
+        <img src="KK13.jpg" alt="image" height="400px" width="300px">    
+        <img src="KK14.jpg" alt="image" height="400px" width="300px">
+        <img src="KK!5.jpg" alt="image" height="400px" width="300px">
+        </article>
+        
+        <article>
+            <h5> DIGITAL ILLUSTRATIONS</h5>
+         <img src="final.jpg" alt="image" height="400px" width="300px">
+         <img src="Dia%20De%20Los%20Muertosn%20poster_%20.jpg" alt="image" height="400px" width="300px">
+        <img src="Doctrow_Round2_RPC_.jpg" alt="image" height="400px" width="500px"> 
+        </article>
+        
+        
+        <article>
+        <h5>WEDDING DESIGN COMMISSION</h5>
+        <img src="37998798_248139269338619_3707870181742084096_o.jpg" alt="image" height="500px" width="400px">
+        <img src="menu%20for%20wedding.jpg" alt="image" height="500px" width="400px">
+         <img src="wedding%20brunch%20draft.jpg" alt="image" height="400px" width="400px">
+        <img src="Rehearsal%20Dinner%20invitation_%20_.png" alt="image" height="400px" width="400px"> 
+        </article>
+        
+      
+        
+    </section>
+        
+
+         <section id="fineartwork">
+     <h4>FINE ART WORK</h4>
+             
+               <h5>PRINTMAKING</h5>
+             <article id=printmaking> 
+                 <div class="printmaking1">
+        <img src="works/Copper%20Event%20Etching.JPG" alt="Image" height="400px" width="400px">
+        <figcaption> “Desperation” 2018.
+Copper Plate Intaglio Etching with Aquatint, 11x11 in.</figcaption>
+                 </div>
+                 
+                 <div class="printmaking2">
+    <img src="works/Linoleum.jpg" alt="Image" height="400px" width="300px">
+        <figcaption>“Grief,” 2019.
+Linoleum Relief Print,
+ 10x12 in.</figcaption>
+        </div>
+                 <div class="printmaking3"> 
+    <img src="works/Laser%20Cutter%201%20print%206x6%20.jpg" alt="Image" height="400px" width="300px">
+       <figcaption> “House Fly,” 2018.
+           Laser Cut Wood Block Print on Sheepskin, 6x7 in.</figcaption>
+        </div>
+                 
+            <div class="printmaking4">     
+    <img src="works/Tarot%20Card%201.jpg" alt="Image" height="400px" width="250px">
+       <figcaption> “Five of Pentacles,” 2018.
+Silkscreen print, 11x15 in. </figcaption>
+        </div>
+                 
+              <div class="printmaking5">
+    <img src="works/abstractprint.jpg" alt="Image" height="400px" width="300px">
+   <figcaption>“Wilting Flower,” 2018.
+Collograph print, 36x28 in.</figcaption>  
+                  </div>   
+    </article>
+    
+    <h5> DREAMS AND FEARS SERIES</h5>
+    <article id="dreams"> 
+    <div class="dreams1">
+     <img src="works/fearanddreams.jpg" alt="image" height="400px" width="300px">
+        <figcaption> “Dreams and Fears i,” 2016. 
+            Pen and Ink with Watercolor on Paper.</figcaption>
+        </div>
+       
+            <div class="dreams2">
+    <img src="works/fearanddreams2.jpg" alt="image" height="400px" width="400px">
+         <figcaption> “Dreams and Fears ii," 2016. Pen and Ink with Watercolor on Paper.</figcaption>
+        </div>
+       
+            <div class="dreams3">
+    <img src="works/dreamsandfear3.jpg" alt="image" height="400px" width="600px">
+         <figcaption> “Dreams and Fears iii," 2016. Pen and Ink with Watercolor on Paper.</figcaption>
+        </div>
+        
+            <div class="dreams4">
+    <img src="works/fearanddreams4.jpg" alt="image" height="400px" width="600px">
+         <figcaption> “Dreams and Fears iv," 2016. Pen and Ink with Watercolor on Paper.</figcaption>
+        </div>
+    </article>
+   
+             
+         <h5>PAIN SERIES</h5>     
+    <article id=pain>
+    <div class="pain1">   
+    <img src="works/pain1.jpg" alt="image" height="500px" width="400px">
+         <figcaption> “Pain i,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+        
+         <div class="pain2">
+    <img src="works/pain3.jpg" alt="image" height="500px" width="400px">
+         <figcaption> “Pain ii,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+        
+         <div class="pain3">
+    <img src="works/pain4.jpg" alt="image" height="500px" width="400px">
+         <figcaption> “Pain iii,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+        
+         <div class="pain4">
+    <img src="works/pain5.jpg" alt="image" height="500px" width="400px">
+         <figcaption> “Pain iv,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+        
+         <div class="pain5">
+    <img src="works/pain6.jpg" alt="image" height="300px" width="400px">
+         <figcaption> “Pain v,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+        
+         <div class="pain6">
+    <img src="works/pain7.jpg" alt="image" height="300px" width="400px">
+         <figcaption> “Pain vi,” 2017. Markers and Colored Pencils on Paper with Cut Edges.</figcaption>
+        </div>
+    </article>
+
+              <h5>2D WORK</h5>
+    <article id=2D>
+        
+         <div class="2d1">
+     <img src="works/painting.jpg" alt="image" height="300px" width="400px">
+        <figcaption> “Fire,” 2015. Mixed Media Collage, 10x15 in. </figcaption>
+        </div>
+        
+         <div class="2d2">
+    <img src="works/landscape.jpg" alt="image" height="300px" width="400px">
+     <figcaption> “A Walk in the Woods,” 2018. Mixed Media Collage. 13x20 in.
+        </figcaption>   
+        </div>
+    </article>
+    </section>
+    
+ <section id="about">
+       
+     <article>
+
+        <h4 align="left">ABOUT ME</h4>
+            <img src="ally%20doctrow.JPG" alt="Image" height="500px" width="376px" align="left">
+    </article>
+ 
+     
+            <article>
+        <div class="metext">
+        <p>I have always been fascinated with the feeling of being uncomfortable. My main goal with my artwork is to make people feel something—hopefully something they have not felt before. Whether it is extreme curiosity, confusion, anxiety, shame, fear, or a mix of all of these together. An element that has always played a part in my art and in my life is chaos: 
+        too many things happening at once, but they work somehow to make the piece stronger.
+        <br>
+        <br> 
+       
+        In my design work, I try to implement what I believe makes something dynamic. I think my ability to infuse my design background with my fine art background lends itself to design work that is creative and unlike other designers in the field.
+         <br>
+        <br>
+            
+         In my fine artwork, I am primarily drawn to printmaking and drawing. I feel like these mediums speak to me because of the ability it gives me to include such fine black and white detail. I particularly enjoy relief printing and intaglio etchings.  
+             </p>
+            </div>
+      
+        </article>
+    
+    </section> 
+<section id="contact">
+         <form method="post" action="send_mail.php">
+  <form id="contact" action="" method="post">
+    <h1> LET'S CHAT</h1>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1">
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">SUBMIT</button>
+      </fieldset>
+      <h3><?php include "secure_email_code.php"?></h3>
+        </form>
+ </form>
+ </section> 
+        
+	<footer>
+        <a href="https://www.linkedin.com/in/ally-doctrow-99b642163/"><img src="linkedin.png" alt="image" height="60px" width="60px"></a> 
+            
+        <a href="https://www.instagram.com/adoctrow/"> <img src="instagram.png" alt="image" height="60px" width="60px"></a>
+        
+        <a href="https://www.youtube.com/channel/UC5lEgpL9y-_72fHhCCkOkyw/"> <img src="youtube.png" alt="image" height="60px" width="60px"></a>
+        
+      <a href="https://www.redbubble.com/people/allydoctrow?asc=u">  <img src="redbubble.png" alt="image" height="60px" width="60px">
+        </a>
+       
+    </footer>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>
